@@ -1,0 +1,26 @@
+<!--
+  OpenAI(ChatGPT) 광고 측정 픽셀 - 기본 코드
+  위치: 모든 페이지 공통 <head>, 가능한 한 위쪽. 페이지당 한 번만.
+
+  실제로 쓸 코드는 광고 관리자에서 복사하세요.
+    전환 > 데이터 소스 > (내 픽셀) > ⋯ > 코드 보기 > 설정 코드
+  아래는 구조를 보여주는 예시이고, YOUR_PIXEL_ID 자리에 내 픽셀 ID가 들어갑니다.
+
+  광고 관리자가 주는 코드에는 debug: true 가 들어 있습니다.
+  브라우저 콘솔에 로그를 찍는 테스트용 옵션이라, 테스트가 끝나면 지웁니다.
+-->
+<script>
+  !(function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var js = d.createElement(s);
+    js.async = true;
+    js.src = u;
+    var first = d.getElementsByTagName(s)[0];
+    first.parentNode.insertBefore(js, first);
+  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+
+  oaiq("init", { pixelId: "YOUR_PIXEL_ID" });
+</script>
